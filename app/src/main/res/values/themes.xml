@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BlackApple" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/mainColor</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.BlackApple" parent="Base.Theme.BlackApple" />
+
+    <style name="Base.Theme.BlackApple.Splash" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/splashDarkColor</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Base.Theme.BlackApple.Language" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Base.Theme.BlackApple.TabLayout" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/font</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:layout_margin">30dp</item>
+    </style>
+
+
+</resources>

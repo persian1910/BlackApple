@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="splashDarkColor">#21005D</color>
+    <color name="mainColor">#6750A4</color>
+    <color name="mainLightColor">#EADDFF</color>
+
+
+    <color name="strokeColor">#D3D3D3</color>
+    <color name="textColor">#4C4C4C</color>
+    <color name="textLightColor">#676767</color>
+    <color name="textLighterColor">#8C8C8C</color>
+    <color name="rippleColor">#377568C0</color>
+    <color name="tabUnselectColor">#A1B6B6B6</color>
+
+    <color name="purpleColor">#A4509C</color>
+</resources>

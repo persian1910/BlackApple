@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.main.TimerFragment">
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/main_timer_segment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_segment_timer"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:fontFamily="@font/font"
+            android:gravity="center"
+            android:text="@string/timer"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_check"
+            app:iconGravity="textStart"
+            app:rippleColor="@color/rippleColor"
+            app:strokeColor="#959595" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_segment_chronometer"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:fontFamily="@font/font"
+            android:gravity="center"
+            android:text="@string/chronometer"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            app:iconGravity="textStart"
+            app:rippleColor="@color/rippleColor"
+            app:strokeColor="#959595"/>
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/timer_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/line_timer_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_timer_segment">
+
+
+        <TextView
+            android:id="@+id/lbl_main_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/font"
+            android:text="@string/main_timer"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/box_hour_timer"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            app:cardBackgroundColor="@color/mainLightColor"
+            app:cardCornerRadius="@dimen/radius"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <ir.pr4e.black_apple.utils.NumberPicker
+                android:id="@+id/minutes_number_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:np_accessibilityDescriptionEnabled="false"
+                app:np_dividerColor="#00FFFFFF"
+                app:np_fadingEdgeEnabled="true"
+                app:np_height="180dp"
+                app:np_max="59"
+                app:np_min="0"
+                app:np_order="descending"
+                app:np_orientation="vertical"
+                app:np_selectedTextColor="@color/splashDarkColor"
+                app:np_selectedTextSize="36sp"
+                app:np_textColor="#C8AFEF"
+                app:np_textSize="22sp"
+                app:np_width="64dp"
+                app:np_wrapSelectorWheel="true" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="@string/dot_seprator"
+            android:textColor="@color/textColor"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/box_hour_timer"
+            app:layout_constraintEnd_toStartOf="@+id/box_minutes_timer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/box_hour_timer"
+            app:layout_constraintTop_toTopOf="@+id/box_hour_timer" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/box_minutes_timer"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            app:cardBackgroundColor="@color/mainLightColor"
+            app:cardCornerRadius="@dimen/radius"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/box_hour_timer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/box_hour_timer">
+
+            <ir.pr4e.black_apple.utils.NumberPicker
+                android:id="@+id/second_number_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:np_accessibilityDescriptionEnabled="false"
+                app:np_dividerColor="#00FFFFFF"
+                app:np_fadingEdgeEnabled="true"
+                app:np_height="180dp"
+                app:np_max="59"
+                app:np_min="0"
+                app:np_order="descending"
+                app:np_orientation="vertical"
+                app:np_selectedTextColor="@color/splashDarkColor"
+                app:np_selectedTextSize="36sp"
+                app:np_textColor="#C8AFEF"
+                app:np_textSize="22sp"
+                app:np_typeface="font"
+                app:np_width="64dp"
+                app:np_wrapSelectorWheel="true" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/line_timer_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="64dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/linear_gradiant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/box_hour_timer" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switch_sport_mode"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:checked="false"
+            android:fontFamily="@font/font"
+            android:gravity="center_vertical"
+            android:text="@string/sport_mode"
+            android:textAlignment="gravity"
+            android:textColor="@color/textColor"
+            android:textDirection="locale"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/line_timer_1"
+            app:layout_constraintStart_toStartOf="@+id/line_timer_1"
+            app:layout_constraintTop_toBottomOf="@+id/line_timer_1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/box_cons_sport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_sport_mode">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font"
+                android:text="@string/round"
+                android:textColor="@color/textColor"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/cardViewss"
+                app:layout_constraintEnd_toEndOf="@+id/cardViewss"
+                app:layout_constraintStart_toStartOf="@+id/cardViewss" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewsxs"
+                android:layout_width="70dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardBackgroundColor="@color/mainLightColor"
+                app:cardCornerRadius="@dimen/radius"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cardViewss"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+
+                <ir.pr4e.black_apple.utils.NumberPicker
+                    android:id="@+id/rest_number_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    app:np_accessibilityDescriptionEnabled="false"
+                    app:np_dividerColor="#00FFFFFF"
+                    app:np_fadingEdgeEnabled="true"
+                    app:np_height="180dp"
+                    app:np_max="59"
+                    app:np_min="0"
+                    app:np_order="descending"
+                    app:np_orientation="vertical"
+                    app:np_selectedTextColor="@color/splashDarkColor"
+                    app:np_selectedTextSize="36sp"
+                    app:np_textColor="#C8AFEF"
+                    app:np_textSize="22sp"
+                    app:np_width="64dp"
+                    app:np_wrapSelectorWheel="true" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewss"
+                android:layout_width="70dp"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="@color/mainLightColor"
+                app:cardCornerRadius="@dimen/radius"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cardViewsxs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cardViewsxs"
+                app:layout_constraintTop_toTopOf="@+id/cardViewsxs">
+
+                <EditText
+                    android:id="@+id/txt_laps_sport"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints="phone"
+                    android:background="@android:color/transparent"
+                    android:digits="0123456789"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:hint="@string/zero"
+                    android:inputType="phone"
+                    android:textColor="@color/splashDarkColor"
+                    android:textColorHint="@color/splashDarkColor"
+                    android:textSize="36sp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/font"
+                android:text="@string/rest_sec"
+                android:textColor="@color/textColor"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/cardViewsxs"
+                app:layout_constraintStart_toStartOf="@+id/cardViewsxs"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/font"
+            android:text="@string/minutes"
+            android:textColor="@color/textColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/box_hour_timer"
+            app:layout_constraintStart_toStartOf="@+id/box_hour_timer"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_main_timer" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font"
+            android:text="@string/second"
+            android:textColor="@color/textColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/box_minutes_timer"
+            app:layout_constraintEnd_toEndOf="@+id/box_minutes_timer"
+            app:layout_constraintStart_toStartOf="@+id/box_minutes_timer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chronometer_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/line_timer_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_timer_segment">
+
+        <TextView
+            android:id="@+id/lbl_clock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font"
+            android:gravity="center"
+            android:text="@string/timer_stopwatch"
+            android:textColor="@color/splashDarkColor"
+            android:textSize="56sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <ImageView
+            android:id="@+id/line_timer_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="64dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/linear_gradiant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_clock" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_timer_" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/line_timer_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/linear_gradiant"
+        app:layout_constraintBottom_toTopOf="@+id/btn_play_timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/timer_count_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_timer_segment">
+
+        <TextView
+            android:id="@+id/lbl_laps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font"
+            android:text="@string/round"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_timer"
+            app:layout_constraintEnd_toEndOf="@+id/progress_timer"
+            app:layout_constraintStart_toStartOf="@+id/progress_timer"
+            app:layout_constraintTop_toTopOf="@+id/progress_timer"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <com.owl93.dpb.CircularProgressView
+            android:id="@+id/progress_timer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:padding="20dp"
+            android:textAlignment="gravity"
+            app:drawTrack="true"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maxValue="8"
+            app:progress="0"
+            app:strokeColor="@color/mainColor"
+            app:strokeWidth="8dp"
+            app:text="@string/timer_counter"
+            app:textColor="@color/textColor"
+            app:textEnabled="true"
+            app:textSize="46sp"
+            app:trackAlpha="10"
+            app:trackColor="#000000"
+            app:trackWidth="15dp" />
+
+        <ImageView
+            android:id="@+id/line_timer_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/linear_gradiant"
+            app:layout_constraintBottom_toTopOf="@+id/btn_close_timer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/btn_close_timer"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="64dp"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            app:fb_backgroundColor="@color/mainLightColor"
+            app:fb_icon="@drawable/ic_refresh"
+            app:fb_iconColor="@color/mainColor"
+            app:fb_iconHeight="20dp"
+            app:fb_iconPosition="center"
+            app:fb_iconWidth="20dp"
+            app:fb_rippleColor="@color/rippleColor"
+            app:fb_shadow="0dp"
+            app:fb_shape="circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_pause_timer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/btn_pause_timer"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            app:fb_backgroundColor="@color/mainLightColor"
+            app:fb_icon="@drawable/ic_pause"
+            app:fb_iconColor="@color/mainColor"
+            app:fb_iconHeight="20dp"
+            app:fb_iconPosition="center"
+            app:fb_iconWidth="20dp"
+            app:fb_rippleColor="@color/rippleColor"
+            app:fb_shadow="0dp"
+            app:fb_shape="circle"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_close_timer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_close_timer"
+            app:layout_constraintTop_toTopOf="@+id/btn_close_timer" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.github.nikartm.button.FitButton
+        android:id="@+id/btn_play_timer"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="64dp"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        app:fb_backgroundColor="@color/mainLightColor"
+        app:fb_icon="@drawable/ic_play"
+        app:fb_iconColor="@color/mainColor"
+        app:fb_iconHeight="20dp"
+        app:fb_iconPosition="center"
+        app:fb_iconWidth="20dp"
+        app:fb_rippleColor="@color/rippleColor"
+        app:fb_shadow="0dp"
+        app:fb_shape="circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_stop_timer"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.github.nikartm.button.FitButton
+        android:id="@+id/btn_stop_timer"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="48dp"
+        android:contentDescription="@string/app_name"
+        android:enabled="false"
+        android:gravity="center"
+        app:fb_backgroundColor="@color/mainLightColor"
+        app:fb_icon="@drawable/ic_stop"
+        app:fb_iconColor="@color/mainColor"
+        app:fb_iconHeight="20dp"
+        app:fb_iconPosition="center"
+        app:fb_iconWidth="20dp"
+        app:fb_rippleColor="@color/rippleColor"
+        app:fb_shadow="0dp"
+        app:fb_shape="circle"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_play_timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_play_timer"
+        app:layout_constraintTop_toTopOf="@+id/btn_play_timer" />
+
+    <com.github.nikartm.button.FitButton
+        android:id="@+id/btn_flag_timer"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        app:fb_backgroundColor="@color/mainLightColor"
+        app:fb_icon="@drawable/ic_flag"
+        app:fb_iconColor="@color/mainColor"
+        app:fb_iconHeight="20dp"
+        app:fb_iconMarginStart="2dp"
+        app:fb_iconPosition="center"
+        app:fb_iconWidth="20dp"
+        app:fb_rippleColor="@color/rippleColor"
+        app:fb_shadow="0dp"
+        app:fb_shape="circle"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_play_timer"
+        app:layout_constraintEnd_toStartOf="@+id/btn_stop_timer"
+        app:layout_constraintStart_toEndOf="@+id/btn_play_timer"
+        app:layout_constraintTop_toBottomOf="@+id/btn_play_timer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

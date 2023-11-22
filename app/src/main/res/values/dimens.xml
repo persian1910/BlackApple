@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radius">10dp</dimen>
+    <dimen name="radiusPagerTab">16dp</dimen>
+    <dimen name="margin_bottom_sheet">16dp</dimen>
+    <dimen name="margin_bottom_sheet_bottom">80dp</dimen>
+
+
+
+
+    <dimen name="viewpager_next_item_visible">13dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">21dp</dimen>
+</resources>

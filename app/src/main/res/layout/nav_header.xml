@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="174dp"
+    android:background="@color/mainColor"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <com.github.nikartm.button.FitButton
+        android:id="@+id/btn_close_nav"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical|start"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        app:fb_backgroundColor="@color/mainColor"
+        app:fb_cornerRadius="17dp"
+        app:fb_icon="@drawable/ic_close"
+        app:fb_iconColor="@color/white"
+        app:fb_iconHeight="20dp"
+        app:fb_iconPosition="center"
+        app:fb_iconWidth="40dp"
+        app:fb_rippleColor="@color/rippleColor"
+        app:fb_shadow="0dp"
+        app:fb_shape="square"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

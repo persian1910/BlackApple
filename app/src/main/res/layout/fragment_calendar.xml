@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.main.CalendarFragment">
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/main_calendar_segment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_segment_time"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:fontFamily="@font/font"
+            android:gravity="center"
+            android:text="@string/time"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_check"
+            app:iconGravity="textStart"
+            app:rippleColor="@color/rippleColor"
+            app:strokeColor="#959595" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_segment_reminder"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:fontFamily="@font/font"
+            android:gravity="center"
+            android:text="@string/reminder"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            app:iconGravity="textStart"
+            app:rippleColor="@color/rippleColor"
+            app:strokeColor="#959595" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/time_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/img_line_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_calendar_segment">
+
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switch_set_auto"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:checked="false"
+            android:fontFamily="@font/font"
+            android:gravity="center_vertical"
+            android:text="@string/timeAuto"
+            android:textAlignment="gravity"
+            android:textColor="@color/textColor"
+            android:textDirection="locale"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_date"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:alpha="0.5"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switch_set_auto"
+            app:rippleColor="@color/rippleColor"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/font"
+                android:text="@string/date"
+                android:textColor="@color/textColor"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/font"
+                android:text="July 30, 2023"
+                android:textColor="@color/textLightColor"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="@color/textLightColor" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_time"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:saveEnabled="false"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_date"
+            app:rippleColor="@color/rippleColor"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/font"
+                android:text="@string/time"
+                android:textColor="@color/textColor"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/font"
+                android:text="6:25 PM"
+                android:textColor="@color/textLightColor"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView31"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="@color/textLightColor" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_time_format"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:saveEnabled="false"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_time"
+            app:rippleColor="@color/rippleColor"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/font"
+                android:text="@string/timeFormat"
+                android:textColor="@color/textColor"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_time_format"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/font"
+                android:text="12-hour (1:00 PM)"
+                android:textColor="@color/textLightColor"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageView32"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="@color/textLightColor" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/reminder_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/img_line_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_calendar_segment">
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/btn_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            app:fb_backgroundColor="@color/white"
+            app:fb_cornerRadius="@dimen/radius"
+            app:fb_fontFamilyRes="@font/font"
+            app:fb_icon="@drawable/ic_add"
+            app:fb_iconColor="@color/mainColor"
+            app:fb_iconHeight="20dp"
+            app:fb_iconMarginStart="8dp"
+            app:fb_iconPosition="left"
+            app:fb_iconWidth="20dp"
+            app:fb_rippleColor="@color/rippleColor"
+            app:fb_shadow="0dp"
+            app:fb_shape="rectangle"
+            app:fb_text="@string/addReminder"
+            app:fb_textColor="@color/mainColor"
+            app:fb_textPaddingEnd="8dp"
+            app:fb_textPaddingStart="8dp"
+            app:fb_textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_reminder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_reminder" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/img_line_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/linear_gradiant"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="64dp"
+        android:fontFamily="@font/font"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

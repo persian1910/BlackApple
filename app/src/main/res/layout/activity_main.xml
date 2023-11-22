@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainColor"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity"
+    tools:openDrawer="end">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mainColor"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="6dp"
+        app:strokeWidth="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mainColor">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:fontFamily="@font/font"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnMenu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btnMenu" />
+
+            <com.github.nikartm.button.FitButton
+                android:id="@+id/btnMenu"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical|start"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                app:fb_backgroundColor="@color/mainColor"
+                app:fb_cornerRadius="17dp"
+                app:fb_icon="@drawable/ic_menu2"
+                app:fb_iconColor="@color/white"
+                app:fb_iconHeight="20dp"
+                app:fb_iconPosition="center"
+                app:fb_iconWidth="40dp"
+                app:fb_rippleColor="@color/rippleColor"
+                app:fb_shadow="0dp"
+                app:fb_shape="square"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/mainColor"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnMenu"
+                app:tabGravity="fill"
+                app:tabIconTint="@color/tabUnselectColor"
+                app:tabIndicatorColor="@color/mainLightColor"
+                app:tabRippleColor="@color/rippleColor"
+                app:tabSelectedTextColor="@color/mainLightColor"
+                app:tabTextAppearance="@style/Base.Theme.BlackApple.TabLayout"
+                app:tabTextColor="@color/tabUnselectColor">
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/mainPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:fadeScrollbars="false"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+            </androidx.viewpager2.widget.ViewPager2>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:backgroundTint="@color/mainColor"
+        app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/nav_menu" />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

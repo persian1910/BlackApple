@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.main.TemperatureFragment">
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/main_temp_segment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_segment_degree"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:fontFamily="@font/font"
+            android:gravity="center"
+            android:text="@string/degree"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_check"
+            app:iconGravity="textStart"
+            app:rippleColor="@color/rippleColor"
+            app:strokeColor="#959595" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_segment_fahrenheit"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:fontFamily="@font/font"
+            android:gravity="center"
+            android:text="@string/fahrenheit"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            app:iconGravity="textStart"
+            app:rippleColor="@color/rippleColor"
+            app:strokeColor="#959595" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/temp_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/img_line_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_temp_segment">
+
+        <com.owl93.dpb.CircularProgressView
+            android:id="@+id/progress_temperature"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginBottom="32dp"
+            android:padding="20dp"
+            app:drawTrack="true"
+            app:gradientCenterColor="@color/purple"
+            app:gradientEndColor="@color/mainColor"
+            app:gradientStartColor="#7688EF"
+            app:layout_constraintBottom_toTopOf="@+id/btn_calibration"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@+id/progress_humidity"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:progress="75"
+            app:strokeGradientSize="view"
+            app:strokeGradientStyle="sweep"
+            app:strokeWidth="15dp"
+            app:text="25&#xb0;C"
+            app:textColor="@color/textColor"
+            app:textEnabled="true"
+            app:textSize="36sp"
+            android:textAlignment="gravity"
+            app:trackAlpha="10"
+            app:trackColor="#000000"
+            app:trackWidth="15dp" />
+
+        <com.owl93.dpb.CircularProgressView
+            android:id="@+id/progress_humidity"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="20dp"
+            app:drawTrack="true"
+            app:gradientCenterColor="@color/purple"
+            app:gradientEndColor="@color/mainColor"
+            app:gradientStartColor="#7688EF"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_temperature"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/progress_temperature"
+            app:layout_constraintTop_toTopOf="@+id/progress_temperature"
+            app:progress="54"
+            app:strokeGradientSize="view"
+            app:strokeGradientStyle="sweep"
+            app:strokeWidth="15dp"
+            app:textColor="@color/textColor"
+            app:textEnabled="true"
+            app:textFormat="pcnt"
+            app:textSize="36sp"
+            app:trackAlpha="10"
+            app:trackColor="#000000"
+            app:trackWidth="15dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_calibration"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_set_point"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="@color/rippleColor"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/font"
+                android:text="@string/calibration"
+                android:textColor="@color/textColor"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="@color/textLightColor" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btn_set_point"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="48dp"
+            android:saveEnabled="false"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="@color/rippleColor"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/font"
+                android:text="@string/setPoint"
+                android:textColor="@color/textColor"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView31"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="@color/textLightColor" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/lbl_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-6dp"
+            android:fontFamily="@font/font"
+            android:text="@string/temp"
+            android:textColor="@color/textColor"
+            app:layout_constraintBottom_toTopOf="@+id/progress_temperature"
+            app:layout_constraintEnd_toEndOf="@+id/progress_temperature"
+            app:layout_constraintStart_toStartOf="@+id/progress_temperature" />
+
+        <TextView
+            android:id="@+id/lbl_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-6dp"
+            android:fontFamily="@font/font"
+            android:text="@string/humidity"
+            android:textColor="@color/textColor"
+            app:layout_constraintBottom_toTopOf="@+id/progress_humidity"
+            app:layout_constraintEnd_toEndOf="@+id/progress_humidity"
+            app:layout_constraintStart_toEndOf="@+id/progress_temperature" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/reminder_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/img_line_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_temp_segment">
+
+        <com.github.nikartm.button.FitButton
+            android:id="@+id/btn_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            app:fb_backgroundColor="@color/white"
+            app:fb_cornerRadius="@dimen/radius"
+            app:fb_fontFamilyRes="@font/font"
+            app:fb_icon="@drawable/ic_add"
+            app:fb_iconColor="@color/mainColor"
+            app:fb_iconHeight="20dp"
+            app:fb_iconMarginStart="8dp"
+            app:fb_iconPosition="left"
+            app:fb_iconWidth="20dp"
+            app:fb_rippleColor="@color/rippleColor"
+            app:fb_shadow="0dp"
+            app:fb_shape="rectangle"
+            app:fb_text="@string/addReminder"
+            app:fb_textColor="@color/mainColor"
+            app:fb_textPaddingEnd="8dp"
+            app:fb_textPaddingStart="8dp"
+            app:fb_textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_reminder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_reminder" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/img_line_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/linear_gradiant"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save_temp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="64dp"
+        android:fontFamily="@font/font"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_on_off"
+            android:icon="@drawable/ic_power"
+            android:title="@string/on_off"/>
+        <item
+            android:id="@+id/nav_wifi"
+            android:icon="@drawable/ic_wifi"
+            android:title="@string/wifi"/>
+        <item
+            android:id="@+id/nav_brightness"
+            android:icon="@drawable/ic_sun"
+            android:title="@string/bright"/>
+        <item
+            android:id="@+id/nav_display"
+            android:icon="@drawable/ic_display"
+            android:title="@string/display"/>
+        <item
+            android:id="@+id/nav_language"
+            android:icon="@drawable/ic_lang"
+            android:title="@string/language"/>
+        <item
+            android:id="@+id/nav_warranty"
+            android:icon="@drawable/ic_warranty"
+            android:title="@string/warranty"/>
+        <item
+            android:id="@+id/nav_application"
+            android:icon="@drawable/ic_help"
+            android:title="@string/application"/>
+        <item
+            android:id="@+id/nav_reset"
+            android:icon="@drawable/ic_reset"
+            android:title="@string/reset"/>
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/ic_exit"
+            android:title="@string/exit"/>
+    </group>
+
+</menu>
